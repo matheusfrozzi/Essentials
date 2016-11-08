@@ -12,8 +12,8 @@ import Foundation
  *  for conforming objects to log anything, by providing
  *  overloaded methods of several value or reference types.
  */
-protocol Logging {
-    
+public protocol Logging {
+
     var logger: Logger { get }
     
     func debugLog<T>(any: T) where T: Any
@@ -30,7 +30,7 @@ protocol Logging {
     
 }
 
-extension Logging {
+public extension Logging {
     
     /*
      *  A Logger instance is provided lazily whenever
@@ -108,9 +108,9 @@ extension Logging {
  *  Each class or struct that should log messages either to the console
  *  should conform to the Logging protocol
  */
-struct Logger {
+public struct Logger {
     
-    enum Level: Int {
+    public enum Level: Int {
         case debug = 0
         case warn
         case error
@@ -124,7 +124,7 @@ struct Logger {
     /*
      *  Log console style messages
      */
-    public func log(level: Level) -> (String) -> (String) -> () {
+    func log(level: Level) -> (String) -> (String) -> () {
         return { model in
             return { message in
                 let log = "\(model): \(message)"

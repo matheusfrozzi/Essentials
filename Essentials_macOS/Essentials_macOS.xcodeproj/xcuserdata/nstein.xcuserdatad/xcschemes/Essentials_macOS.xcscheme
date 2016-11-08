@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9B696B7E1DD0D65900B59266"
-               BuildableName = "Essentials_macOS.framework"
+               BuildableName = "Essentials.framework"
                BlueprintName = "Essentials_macOS"
                ReferencedContainer = "container:Essentials_macOS.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B696B7E1DD0D65900B59266"
-            BuildableName = "Essentials_macOS.framework"
+            BuildableName = "Essentials.framework"
             BlueprintName = "Essentials_macOS"
             ReferencedContainer = "container:Essentials_macOS.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B696B7E1DD0D65900B59266"
-            BuildableName = "Essentials_macOS.framework"
+            BuildableName = "Essentials.framework"
             BlueprintName = "Essentials_macOS"
             ReferencedContainer = "container:Essentials_macOS.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B696B7E1DD0D65900B59266"
-            BuildableName = "Essentials_macOS.framework"
+            BuildableName = "Essentials.framework"
             BlueprintName = "Essentials_macOS"
             ReferencedContainer = "container:Essentials_macOS.xcodeproj">
          </BuildableReference>
