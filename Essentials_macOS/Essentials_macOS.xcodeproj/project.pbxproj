@@ -10,7 +10,7 @@
 		9B696B891DD0D65900B59266 /* Essentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B696B7F1DD0D65900B59266 /* Essentials.framework */; };
 		9B696B8E1DD0D65900B59266 /* Essentials_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B696B8D1DD0D65900B59266 /* Essentials_macOSTests.swift */; };
 		9B696B901DD0D65900B59266 /* Essentials_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B696B821DD0D65900B59266 /* Essentials_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9B696B9A1DD0D70300B59266 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B696B991DD0D70300B59266 /* Logger.swift */; };
+		9BB8E76D1DD337B400F195C7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8E76C1DD337B400F195C7 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,7 @@
 		9B696B881DD0D65900B59266 /* Essentials_macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Essentials_macOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B696B8D1DD0D65900B59266 /* Essentials_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Essentials_macOSTests.swift; sourceTree = "<group>"; };
 		9B696B8F1DD0D65900B59266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B696B991DD0D70300B59266 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9BB8E76C1DD337B400F195C7 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 		9B696B811DD0D65900B59266 /* Essentials_macOS */ = {
 			isa = PBXGroup;
 			children = (
-				9B696B991DD0D70300B59266 /* Logger.swift */,
+				9BB8E76B1DD337B400F195C7 /* Essentials */,
 				9B696B821DD0D65900B59266 /* Essentials_macOS.h */,
 				9B696B831DD0D65900B59266 /* Info.plist */,
 			);
@@ -87,6 +87,15 @@
 				9B696B8F1DD0D65900B59266 /* Info.plist */,
 			);
 			path = Essentials_macOSTests;
+			sourceTree = "<group>";
+		};
+		9BB8E76B1DD337B400F195C7 /* Essentials */ = {
+			isa = PBXGroup;
+			children = (
+				9BB8E76C1DD337B400F195C7 /* Logger.swift */,
+			);
+			name = Essentials;
+			path = ../../Essentials;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B696B9A1DD0D70300B59266 /* Logger.swift in Sources */,
+				9BB8E76D1DD337B400F195C7 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +423,7 @@
 				9B696B951DD0D65900B59266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B696B961DD0D65900B59266 /* Build configuration list for PBXNativeTarget "Essentials_macOSTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +432,7 @@
 				9B696B981DD0D65900B59266 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

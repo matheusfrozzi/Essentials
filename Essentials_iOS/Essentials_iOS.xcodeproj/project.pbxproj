@@ -10,7 +10,7 @@
 		9B696B651DD0D60700B59266 /* Essentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B696B5B1DD0D60700B59266 /* Essentials.framework */; };
 		9B696B6A1DD0D60700B59266 /* Essentials_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B696B691DD0D60700B59266 /* Essentials_iOSTests.swift */; };
 		9B696B6C1DD0D60700B59266 /* Essentials_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B696B5E1DD0D60700B59266 /* Essentials_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9B696B9C1DD0D71100B59266 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B696B9B1DD0D71100B59266 /* Logger.swift */; };
+		9BB8E76A1DD3378F00F195C7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8E7691DD3378F00F195C7 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,7 @@
 		9B696B641DD0D60700B59266 /* Essentials_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Essentials_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B696B691DD0D60700B59266 /* Essentials_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Essentials_iOSTests.swift; sourceTree = "<group>"; };
 		9B696B6B1DD0D60700B59266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B696B9B1DD0D71100B59266 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		9BB8E7691DD3378F00F195C7 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 		9B696B5D1DD0D60700B59266 /* Essentials_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				9B696B9B1DD0D71100B59266 /* Logger.swift */,
+				9BB8E7681DD3378F00F195C7 /* Essentials */,
 				9B696B5E1DD0D60700B59266 /* Essentials_iOS.h */,
 				9B696B5F1DD0D60700B59266 /* Info.plist */,
 			);
@@ -87,6 +87,15 @@
 				9B696B6B1DD0D60700B59266 /* Info.plist */,
 			);
 			path = Essentials_iOSTests;
+			sourceTree = "<group>";
+		};
+		9BB8E7681DD3378F00F195C7 /* Essentials */ = {
+			isa = PBXGroup;
+			children = (
+				9BB8E7691DD3378F00F195C7 /* Logger.swift */,
+			);
+			name = Essentials;
+			path = ../../Essentials;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B696B9C1DD0D71100B59266 /* Logger.swift in Sources */,
+				9BB8E76A1DD3378F00F195C7 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
