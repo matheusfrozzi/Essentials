@@ -14,7 +14,7 @@ import Foundation
  
  */
 public protocol Logging {
-    //
+    
     var logger: Logger { get }
 
     func debugLog<T>(message: T) where T: Any
