@@ -4,6 +4,7 @@
 //  Created by Nick Steinhauer on 4/11/16.
 //  Copyright (c) 2016 Nick Steinhauer. All rights reserved.
 //
+//  Inpired by a post by Andrew Wagner (@drewag).
 
 import Foundation
 

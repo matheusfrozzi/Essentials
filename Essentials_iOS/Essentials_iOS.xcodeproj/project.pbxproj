@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B3693191DEB1C570094A3D7 /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3693181DEB1C570094A3D7 /* Rounder.swift */; };
 		9B696B651DD0D60700B59266 /* Essentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B696B5B1DD0D60700B59266 /* Essentials.framework */; };
 		9B696B6A1DD0D60700B59266 /* Essentials_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B696B691DD0D60700B59266 /* Essentials_iOSTests.swift */; };
 		9B696B6C1DD0D60700B59266 /* Essentials_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B696B5E1DD0D60700B59266 /* Essentials_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B3693181DEB1C570094A3D7 /* Rounder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rounder.swift; sourceTree = "<group>"; };
 		9B696B5B1DD0D60700B59266 /* Essentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Essentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B696B5E1DD0D60700B59266 /* Essentials_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Essentials_iOS.h; sourceTree = "<group>"; };
 		9B696B5F1DD0D60700B59266 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				9BB8E7691DD3378F00F195C7 /* Logger.swift */,
+				9B3693181DEB1C570094A3D7 /* Rounder.swift */,
 			);
 			name = Essentials;
 			path = ../../Essentials;
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BB8E76A1DD3378F00F195C7 /* Logger.swift in Sources */,
+				9B3693191DEB1C570094A3D7 /* Rounder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
