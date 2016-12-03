@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B30FB041DF331C700ACB7B7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8E76C1DD337B400F195C7 /* Logger.swift */; };
+		9B30FB051DF331C900ACB7B7 /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B36931A1DEB1C670094A3D7 /* Rounder.swift */; };
 		9B36931B1DEB1C670094A3D7 /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B36931A1DEB1C670094A3D7 /* Rounder.swift */; };
 		9B696B891DD0D65900B59266 /* Essentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B696B7F1DD0D65900B59266 /* Essentials.framework */; };
 		9B696B8E1DD0D65900B59266 /* Essentials_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B696B8D1DD0D65900B59266 /* Essentials_macOSTests.swift */; };
@@ -94,8 +96,8 @@
 		9BB8E76B1DD337B400F195C7 /* Essentials */ = {
 			isa = PBXGroup;
 			children = (
-				9B36931A1DEB1C670094A3D7 /* Rounder.swift */,
 				9BB8E76C1DD337B400F195C7 /* Logger.swift */,
+				9B36931A1DEB1C670094A3D7 /* Rounder.swift */,
 			);
 			name = Essentials;
 			path = ../../Essentials;
@@ -223,6 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B696B8E1DD0D65900B59266 /* Essentials_macOSTests.swift in Sources */,
+				9B30FB051DF331C900ACB7B7 /* Rounder.swift in Sources */,
+				9B30FB041DF331C700ACB7B7 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

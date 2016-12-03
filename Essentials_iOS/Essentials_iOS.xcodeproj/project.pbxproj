@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B30FB031DF331C000ACB7B7 /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3693181DEB1C570094A3D7 /* Rounder.swift */; };
+		9B30FB061DF331CE00ACB7B7 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB8E7691DD3378F00F195C7 /* Logger.swift */; };
 		9B3693191DEB1C570094A3D7 /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3693181DEB1C570094A3D7 /* Rounder.swift */; };
 		9B696B651DD0D60700B59266 /* Essentials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B696B5B1DD0D60700B59266 /* Essentials.framework */; };
 		9B696B6A1DD0D60700B59266 /* Essentials_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B696B691DD0D60700B59266 /* Essentials_iOSTests.swift */; };
@@ -223,6 +225,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B696B6A1DD0D60700B59266 /* Essentials_iOSTests.swift in Sources */,
+				9B30FB061DF331CE00ACB7B7 /* Logger.swift in Sources */,
+				9B30FB031DF331C000ACB7B7 /* Rounder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

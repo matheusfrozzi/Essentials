@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Essentials_iOS
+@testable import Essentials
 
 class Essentials_iOSTests: XCTestCase {
     
@@ -21,16 +21,8 @@ class Essentials_iOSTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testRounder() {
+        XCTAssertEqual(round(9238.320852, to: 2), 9238.32)
     }
     
 }

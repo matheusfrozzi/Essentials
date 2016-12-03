@@ -17,4 +17,3 @@ func round(_ decimal: Double, to decimalPlaces: Int) -> Double {
     let divisor = pow(10, Double(decimalPlaces))
     return round(decimal * divisor) / divisor
 }
-
