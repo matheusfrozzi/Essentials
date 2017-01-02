@@ -2,8 +2,8 @@
 //  Essentials_iOS.h
 //  Essentials_iOS
 //
-//  Created by Nick Steinhauer on 07/11/16.
-//  Copyright © 2016 Express Publishing. All rights reserved.
+//  Created by Nicolaos Steinhauer on 02/01/2017.
+//
 //
 
 #import <UIKit/UIKit.h>
