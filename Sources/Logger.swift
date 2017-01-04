@@ -1,5 +1,6 @@
 //
 //  Logger.swift
+//  Essentials
 //
 //  Created by Nick Steinhauer on 4/11/16.
 //  Copyright (c) 2016 Nick Steinhauer. All rights reserved.

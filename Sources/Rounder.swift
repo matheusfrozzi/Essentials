@@ -1,6 +1,6 @@
 //
 //  Rounder.swift
-//  Essentials_iOS
+//  Essentials
 //
 //  Created by Nicolaos Steinhauer on 27/11/2016.
 //  Copyright © 2016 Express Publishing. All rights reserved.

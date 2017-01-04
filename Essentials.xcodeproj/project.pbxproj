@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B49DDA41E1D49BF00D9685A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B49DDA31E1D49BF00D9685A /* CoreDataStack.swift */; };
 		9B7A48411E1A879F00E67BA4 /* Essentials_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B7A483F1E1A879F00E67BA4 /* Essentials_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		OBJ_22 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Logger.swift */; };
 		OBJ_23 /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Rounder.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B49DDA31E1D49BF00D9685A /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9B7A483D1E1A879F00E67BA4 /* Essentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Essentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B7A483F1E1A879F00E67BA4 /* Essentials_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Essentials_iOS.h; sourceTree = "<group>"; };
 		9B7A48401E1A879F00E67BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,7 +100,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -107,7 +109,6 @@
 				9B7A483E1E1A879F00E67BA4 /* Essentials_iOS */,
 				OBJ_14 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -121,6 +122,7 @@
 		OBJ_8 /* Essentials */ = {
 			isa = PBXGroup;
 			children = (
+				9B49DDA31E1D49BF00D9685A /* CoreDataStack.swift */,
 				OBJ_9 /* Logger.swift */,
 				OBJ_10 /* Rounder.swift */,
 			);
@@ -215,7 +217,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -249,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				9B49DDA41E1D49BF00D9685A /* CoreDataStack.swift in Sources */,
 				OBJ_22 /* Logger.swift in Sources */,
 				OBJ_23 /* Rounder.swift in Sources */,
 			);
@@ -319,7 +322,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Essentials_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nstein.Essentials.iOS;
@@ -377,7 +380,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Essentials_iOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nstein.Essentials.iOS;
@@ -477,6 +480,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
@@ -498,6 +502,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_OPTIMIZATION_LEVEL = s;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -520,6 +525,7 @@
 				9B7A48441E1A879F00E67BA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 		OBJ_18 /* Build configuration list for PBXNativeTarget "Essentials" */ = {
 			isa = XCConfigurationList;
