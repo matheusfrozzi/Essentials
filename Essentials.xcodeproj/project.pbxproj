@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9B49DDA41E1D49BF00D9685A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B49DDA31E1D49BF00D9685A /* CoreDataStack.swift */; };
+		9B49DDA51E1EA08100D9685A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B49DDA31E1D49BF00D9685A /* CoreDataStack.swift */; };
+		9B49DDA61E1EA08500D9685A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Logger.swift */; };
+		9B49DDA71E1EA08700D9685A /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Rounder.swift */; };
 		9B7A48411E1A879F00E67BA4 /* Essentials_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B7A483F1E1A879F00E67BA4 /* Essentials_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		OBJ_22 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Logger.swift */; };
 		OBJ_23 /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Rounder.swift */; };
@@ -244,6 +247,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B49DDA51E1EA08100D9685A /* CoreDataStack.swift in Sources */,
+				9B49DDA71E1EA08700D9685A /* Rounder.swift in Sources */,
+				9B49DDA61E1EA08500D9685A /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

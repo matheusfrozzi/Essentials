@@ -12,14 +12,14 @@ import Foundation
 import CoreData
 
 #if os(iOS)
-    final class CoreDataStack {
-        static let shared = CoreDataStack()                         //singleton instance
+    public final class CoreDataStack {
+        public static let shared = CoreDataStack()                         //singleton instance
         
         var errorHandler: (Error) -> Void = {_ in }
         
         //MARK: - all iOS versions stack
         
-        lazy var viewContext: NSManagedObjectContext = {
+        public lazy var viewContext: NSManagedObjectContext = {
             if #available(iOS 10.0, *) {
                 return self.persistentContainer.viewContext
             } else {
@@ -30,7 +30,7 @@ import CoreData
             }
         }()
         
-        lazy var backgroundContext: NSManagedObjectContext = {
+        public lazy var backgroundContext: NSManagedObjectContext = {
             if #available(iOS 10.0, *) {
                 return self.persistentContainer.newBackgroundContext()
             } else {
@@ -41,8 +41,15 @@ import CoreData
             }
         }()
         
-        func saveContext() {
-            let context = viewContext
+        public func saveViewContext() {
+            save(context: viewContext)
+        }
+        
+        public func saveBackgroundContext() {
+            save(context: backgroundContext)
+        }
+        
+        func save(context: NSManagedObjectContext) {
             if context.hasChanges {
                 do {
                     try context.save()
@@ -58,7 +65,7 @@ import CoreData
         //MARK: - >iOS 10.0 Stack
         
         @available(iOS 10.0, *)
-        lazy var persistentContainer: NSPersistentContainer = {
+        public lazy var persistentContainer: NSPersistentContainer = {
             /*
              The persistent container for the application. This implementation
              creates and returns a container, having loaded the store for the
@@ -107,19 +114,19 @@ import CoreData
         }
         
         @available(iOS 8.0, *)
-        lazy var libraryDirectory: URL = {
+        public lazy var libraryDirectory: URL = {
             let urls = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
             return urls.first! as URL
         }()
         
         @available(iOS 8.0, *)
-        lazy var managedObjectModel: NSManagedObjectModel = {
+        public lazy var managedObjectModel: NSManagedObjectModel = {
             let modelURL = Bundle.main.url(forResource: "EDBiOS", withExtension: "momd")!
             return NSManagedObjectModel(contentsOf: modelURL)!
         }()
         
         @available(iOS 8.0, *)
-        lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        public lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
             let coordinator = NSPersistentStoreCoordinator(managedObjectModel:
                 self.managedObjectModel)
             let url = self.libraryDirectory.appendingPathComponent("EDBiOS.sqlite")
