@@ -15,6 +15,8 @@ import CoreData
     public final class CoreDataStack {
         public static let shared = CoreDataStack()                         //singleton instance
         
+        static var modelObjectName = ""                             //the filename of the managed object model resource file
+        
         var errorHandler: (Error) -> Void = {_ in }
         
         //MARK: - all iOS versions stack
