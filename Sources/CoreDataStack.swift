@@ -17,6 +17,8 @@ import CoreData
 public final class CoreDataStack {
     public static let shared = CoreDataStack()                         //singleton instance
     
+    /// The name of the bundle where the model data scheme resides
+    public static var bundleName = ""
     /// The filename of the managed object model resource file
     public static var modelObjectName = ""
     /// The path to append to the directory the application uses to store the Core Data store file
@@ -24,7 +26,7 @@ public final class CoreDataStack {
     
     var errorHandler: (Error) -> Void = {_ in }
     
-    //MARK: - all iOS versions stack
+    //MARK: - all OS stack
     
     public lazy var viewContext: NSManagedObjectContext = {
         if #available(iOS 10.0, OSX 10.12, *) {
@@ -69,7 +71,7 @@ public final class CoreDataStack {
         }
     }
     
-    //MARK: - >iOS 10.0 Stack
+    //MARK: - iOS 10.0+ && macOS 10.12+ Stack
     
     @available(iOS 10.0, OSX 10.12, *)
     public lazy var persistentContainer: NSPersistentContainer = {
@@ -79,7 +81,8 @@ public final class CoreDataStack {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
          */
-        let container = NSPersistentContainer(name: modelObjectName)
+        //        let container = NSPersistentContainer(name: modelObjectName)
+        let container = NSPersistentContainer(name: CoreDataStack.modelObjectName, managedObjectModel: self.managedObjectModel)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
@@ -99,7 +102,7 @@ public final class CoreDataStack {
         return container
     }()
     
-    //MARK: - macOS && iOS <10.0 stack
+    //MARK: - macOS 10.10+ && iOS 8.0+ stack
     
     @available(iOS 8.0, OSX 10.10, *)
     private init() {
@@ -114,96 +117,103 @@ public final class CoreDataStack {
                                                name: .NSManagedObjectContextDidSave,
                                                object: self.backgroundContext)
     }
-
+    
     @available(iOS 8.0, OSX 10.10, *)
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
     
+    #if os(iOS)
+    @available(iOS 8.0, *)
     public lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
-        if #available(iOS 8.0, *) {
-            let coordinator = NSPersistentStoreCoordinator(managedObjectModel:
-                self.managedObjectModel)
-            let url = self.libraryDirectory.appendingPathComponent("\(modelObjectName).sqlite")
-            do {
-                try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
-                                                   configurationName: nil,
-                                                   at: url,
-                                                   options: [
-                                                    NSMigratePersistentStoresAutomaticallyOption: true,
-                                                    NSInferMappingModelAutomaticallyOption: true
-                    ]
-                )
-            } catch {
-                // Report any error we got.
-                NSLog("CoreData error \(error), \(error._userInfo)")
-                self.errorHandler(error)
+    let coordinator = NSPersistentStoreCoordinator(managedObjectModel:
+    self.managedObjectModel)
+    let url = self.libraryDirectory.appendingPathComponent("\(CoreDataStack.modelObjectName).sqlite")
+    do {
+    try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
+    configurationName: nil,
+    at: url,
+    options: [
+    NSMigratePersistentStoresAutomaticallyOption: true,
+    NSInferMappingModelAutomaticallyOption: true
+    ]
+    )
+    } catch {
+    // Report any error we got.
+    NSLog("CoreData error \(error), \(error._userInfo)")
+    self.errorHandler(error)
+    }
+    return coordinator
+    }()
+    #endif
+    
+    #if os(OSX)
+    @available(OSX 10.10, *)
+    public lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. (The directory for the store is created, if necessary.) This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
+        let fileManager = FileManager.default
+        var failError: NSError? = nil
+        var shouldFail = false
+        var failureReason = "There was an error creating or loading the application's saved data."
+        
+        // Make sure the application files directory is there
+        do {
+            let properties = try self.applicationDocumentsDirectory.resourceValues(forKeys: [URLResourceKey.isDirectoryKey])
+            if !properties.isDirectory! {
+                failureReason = "Expected a folder to store application data, found a file \(self.applicationDocumentsDirectory.path)."
+                shouldFail = true
             }
-            return coordinator
-        } else if #available(OSX 10.10, *) {
-            // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. (The directory for the store is created, if necessary.) This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
-            let fileManager = FileManager.default
-            var failError: NSError? = nil
-            var shouldFail = false
-            var failureReason = "There was an error creating or loading the application's saved data."
-            
-            // Make sure the application files directory is there
-            do {
-                let properties = try self.applicationDocumentsDirectory.resourceValues(forKeys: [URLResourceKey.isDirectoryKey])
-                if !properties.isDirectory! {
-                    failureReason = "Expected a folder to store application data, found a file \(self.applicationDocumentsDirectory.path)."
-                    shouldFail = true
-                }
-            } catch  {
-                let nserror = error as NSError
-                if nserror.code == NSFileReadNoSuchFileError {
-                    do {
-                        try fileManager.createDirectory(atPath: self.applicationDocumentsDirectory.path, withIntermediateDirectories: true, attributes: nil)
-                    } catch {
-                        failError = nserror
-                    }
-                } else {
+        } catch  {
+            let nserror = error as NSError
+            if nserror.code == NSFileReadNoSuchFileError {
+                do {
+                    try fileManager.createDirectory(atPath: self.applicationDocumentsDirectory.path, withIntermediateDirectories: true, attributes: nil)
+                } catch {
                     failError = nserror
                 }
-            }
-            
-            // Create the coordinator and store
-            var coordinator: NSPersistentStoreCoordinator? = nil
-            if failError == nil {
-                coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-                let url = self.applicationDocumentsDirectory.appendingPathComponent("\(modelObjectName).storedata")
-                do {
-                    try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
-                } catch {
-                    // Replace this implementation with code to handle the error appropriately.
-                    
-                    /*
-                     Typical reasons for an error here include:
-                     * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                     * The device is out of space.
-                     * The store could not be migrated to the current model version.
-                     Check the error message to determine what the actual problem was.
-                     */
-                    failError = error as NSError
-                }
-            }
-            
-            if shouldFail || (failError != nil) {
-                // Report any error we got.
-                if let error = failError {
-                    NSApplication.shared().presentError(error)
-                    fatalError("Unresolved error: \(error), \(error.userInfo)")
-                }
-                fatalError("Unsresolved error: \(failureReason)")
             } else {
-                return coordinator!
+                failError = nserror
             }
         }
+        
+        // Create the coordinator and store
+        var coordinator: NSPersistentStoreCoordinator? = nil
+        if failError == nil {
+            coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+            let url = self.applicationDocumentsDirectory.appendingPathComponent("\(CoreDataStack.modelObjectName).storedata")
+            do {
+                try coordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                
+                /*
+                 Typical reasons for an error here include:
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                failError = error as NSError
+            }
+        }
+        
+        if shouldFail || (failError != nil) {
+            // Report any error we got.
+            if let error = failError {
+                NSApplication.shared().presentError(error)
+                fatalError("Unresolved error: \(error), \(error.userInfo)")
+            }
+            fatalError("Unsresolved error: \(failureReason)")
+        } else {
+            return coordinator!
+        }
     }()
+    #endif
     
     @available(iOS 8.0, OSX 10.10, *)
     public lazy var managedObjectModel: NSManagedObjectModel = {
-        let modelURL = Bundle.main.url(forResource: modelObjectName, withExtension: "momd")!
+        guard let bundle = Bundle(identifier: CoreDataStack.bundleName),
+            let modelURL = bundle.url(forResource: CoreDataStack.modelObjectName, withExtension: "momd") else { fatalError("Could not instantiate the managed object model.") }
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
@@ -221,7 +231,7 @@ public final class CoreDataStack {
         }
     }
     
-    //MARK: - iOS <10.0 exclusive stack
+    //MARK: - iOS 8.0+ exclusive stack
     
     @available(iOS 8.0, *)
     public lazy var libraryDirectory: URL = {
@@ -229,7 +239,7 @@ public final class CoreDataStack {
         return urls.first! as URL
     }()
     
-    //MARK: - macOS exclusive stack
+    //MARK: - macOS 10.10+ exclusive stack
     
     @available(OSX 10.10, *)
     public lazy var applicationDocumentsDirectory: Foundation.URL = {
@@ -237,5 +247,5 @@ public final class CoreDataStack {
         let appSupportURL = urls[urls.count - 1]
         return appSupportURL.appendingPathComponent(CoreDataStack.persistentCoordinatorPath)
     }()
-   
+    
 }
