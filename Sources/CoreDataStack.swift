@@ -10,7 +10,7 @@
 
 import Foundation
 import CoreData
-#if os(OSX)
+#if os(macOS)
     import AppKit
 #endif
 
@@ -123,31 +123,31 @@ public final class CoreDataStack {
         NotificationCenter.default.removeObserver(self)
     }
     
-    #if os(iOS)
+#if os(iOS)
     @available(iOS 8.0, *)
     public lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
-    let coordinator = NSPersistentStoreCoordinator(managedObjectModel:
-    self.managedObjectModel)
-    let url = self.libraryDirectory.appendingPathComponent("\(CoreDataStack.modelObjectName).sqlite")
-    do {
-    try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
-    configurationName: nil,
-    at: url,
-    options: [
-    NSMigratePersistentStoresAutomaticallyOption: true,
-    NSInferMappingModelAutomaticallyOption: true
-    ]
-    )
-    } catch {
-    // Report any error we got.
-    NSLog("CoreData error \(error), \(error._userInfo)")
-    self.errorHandler(error)
-    }
-    return coordinator
+        let coordinator = NSPersistentStoreCoordinator(managedObjectModel:
+        self.managedObjectModel)
+        let url = self.libraryDirectory.appendingPathComponent("\(CoreDataStack.modelObjectName).sqlite")
+        do {
+            try coordinator.addPersistentStore(ofType: NSSQLiteStoreType,
+                                    configurationName: nil,
+                                                    at: url,
+                                                options: [
+                                                            NSMigratePersistentStoresAutomaticallyOption: true,
+                                                            NSInferMappingModelAutomaticallyOption: true
+                                                ]
+            )
+        } catch {
+        // Report any error we got.
+        NSLog("CoreData error \(error), \(error._userInfo)")
+        self.errorHandler(error)
+        }
+        return coordinator
     }()
-    #endif
+#endif
     
-    #if os(OSX)
+#if os(macOS)
     @available(OSX 10.10, *)
     public lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. (The directory for the store is created, if necessary.) This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
@@ -208,7 +208,7 @@ public final class CoreDataStack {
             return coordinator!
         }
     }()
-    #endif
+#endif
     
     @available(iOS 8.0, OSX 10.10, *)
     public lazy var managedObjectModel: NSManagedObjectModel = {
