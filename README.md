@@ -1,7 +1,7 @@
 # Essentials
 
-A framework of useful entities for iOS and macOS apps.
+A framework of useful entities for iOS and macOS targets.
 
-The workspace consists of two framework projects one for each platform.
+#SPM ready
 
-Any logic entities shared between the two frameworks reside in the Essentials directory, and are subsequently referenced in the two projects.
+Just add repo the link to your `Package.swift` file dependencies. 
