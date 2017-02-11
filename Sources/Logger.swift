@@ -47,7 +47,7 @@ public extension Logging {
     ///
     /// - parameters:
     ///     - message: The message to log. When the argument isn't a `String` or a `Strideable`, the argument's type is logged instead.
-    func debugLog<T>(message: T) where T: Any {
+    func debugLog(message: Any) {
         let level = logger.log(level: .debug)
         let model = level("\(Self.self)")
         model("\(message.self)")
@@ -74,7 +74,7 @@ public extension Logging {
     ///
     /// - parameters:
     ///     - message: The message to log. When the argument isn't a `String` or a `Strideable`, the argument's type is logged instead.
-    func warnLog<T>(message: T) where T: Any {
+    func warnLog(message: Any) {
         let level = logger.log(level: .warn)
         let model = level("\(Self.self)")
         model("\(message.self)")
@@ -101,7 +101,7 @@ public extension Logging {
     ///
     /// - parameters:
     ///     - message: The message to log. When the argument isn't a `String` or a `Strideable`, the argument's type is logged instead.
-    func errorLog<T>(message: T) where T: Any {
+    func errorLog(message: Any) {
         let level = logger.log(level: .error)
         let model = level("\(Self.self)")
         model("\(message.self)")
@@ -151,22 +151,22 @@ public struct Logger {
     private static let LOG_FILE_NAME = "log"
     
     /// Sets the globally available logging `threshold` level.
-    public static var threshold = Level.debug                                                                   //this is declared globally only once by an app
+    public static var threshold = Level.debug
     
     /// Log console style messages
     ///
     /// - parameters:
-    ///     - level: The level for this logging process. This argument is *enclosed in the mehods curried return function.
+    ///     - level: The level for this logging process. This argument is *enclosed* in the mehods curried return function.
     ///
     /// - returns: A higher-order function, with the enclosed `level`, ready to be supplied with the `model` type and the actual log `message`.
     func log(level: Level) -> (String) -> (String) -> () {
         return { model in
             return { message in
                 let log = "\(model): \(message)"
-                if Logger.threshold.rawValue <= level.rawValue && Logger.threshold == .debug {                  //conditional can only go here, as the optional return value is only available at the end of the higher-order function
+                if Logger.threshold == .debug {
                     print(log)
                     self.write(log: log)
-                } else {
+                } else if Logger.threshold <= level {
                     self.write(log: log)
                 }
             }
@@ -209,4 +209,24 @@ public struct Logger {
         }
     }
     
+}
+
+public func ==(lhs: Logger.Level, rhs: Logger.Level) -> Bool {
+    return lhs.rawValue == rhs.rawValue
+}
+
+public func <(lhs: Logger.Level, rhs: Logger.Level) -> Bool {
+    return lhs.rawValue < rhs.rawValue
+}
+
+public func >(lhs: Logger.Level, rhs: Logger.Level) -> Bool {
+    return lhs.rawValue > rhs.rawValue
+}
+
+public func <=(lhs: Logger.Level, rhs: Logger.Level) -> Bool {
+    return lhs.rawValue <= rhs.rawValue
+}
+
+public func >=(lhs: Logger.Level, rhs: Logger.Level) -> Bool {
+    return lhs.rawValue >= rhs.rawValue
 }
