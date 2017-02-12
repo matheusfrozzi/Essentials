@@ -2,6 +2,28 @@
 
 A framework of useful entities for iOS and macOS targets.
 
-#SPM ready
+##Entities
+
+###CoreDataStack
+
+Universal Core Data Stack (singleton), ready to be used in iOS and macOS targets. The stack is setup with a main and a background (private) context that are utilised by a PersistentStoreContainer where applicable or, NSManagedObjectContextDidSave notifications are registered and handled manually.
+
+###Rounder
+
+Global function that rounds a `Double` at a certain number of decimal digits.
+
+###FileManager
+
+Foundation `FileManager` extension used for saving a similarly named file into a particular directory (similar to how macOS handles Finder file duplication.)
+
+###String
+
+Foundation `String` extension with helpful related methods.
+
+###Logger
+
+A univarsal Logger for iOS and macOS targets. Any logs are either stored to a file location or, both on disk and the console.
+
+###SPM ready
 
 Just add repo the link to your `Package.swift` file dependencies. 

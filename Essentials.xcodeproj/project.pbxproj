@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9B49DDA41E1D49BF00D9685A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B49DDA31E1D49BF00D9685A /* CoreDataStack.swift */; };
+		9BFEEC3F1E4F7564009DB5FB /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFEEC3E1E4F7564009DB5FB /* FileManager.swift */; };
+		9BFEEC411E50939A009DB5FB /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BFEEC401E50939A009DB5FB /* String.swift */; };
 		OBJ_22 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Logger.swift */; };
 		OBJ_23 /* Rounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Rounder.swift */; };
 		OBJ_30 /* EssentialsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* EssentialsTests.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		9B49DDA31E1D49BF00D9685A /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9BFEEC3E1E4F7564009DB5FB /* FileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		9BFEEC401E50939A009DB5FB /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Rounder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rounder.swift; sourceTree = "<group>"; };
 		OBJ_13 /* EssentialsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialsTests.swift; sourceTree = "<group>"; };
 		OBJ_15 /* Essentials.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Essentials.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +107,8 @@
 				9B49DDA31E1D49BF00D9685A /* CoreDataStack.swift */,
 				OBJ_9 /* Logger.swift */,
 				OBJ_10 /* Rounder.swift */,
+				9BFEEC3E1E4F7564009DB5FB /* FileManager.swift */,
+				9BFEEC401E50939A009DB5FB /* String.swift */,
 			);
 			name = Essentials;
 			path = Sources;
@@ -177,7 +183,9 @@
 			files = (
 				9B49DDA41E1D49BF00D9685A /* CoreDataStack.swift in Sources */,
 				OBJ_22 /* Logger.swift in Sources */,
+				9BFEEC411E50939A009DB5FB /* String.swift in Sources */,
 				OBJ_23 /* Rounder.swift in Sources */,
+				9BFEEC3F1E4F7564009DB5FB /* FileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
