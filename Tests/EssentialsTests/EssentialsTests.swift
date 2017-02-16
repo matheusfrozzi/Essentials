@@ -32,7 +32,7 @@ class EssentialsTests: XCTestCase {
         let testFileUrl = desktopDirectoryUrl.appendingPathComponent("test copy.test")
         let successTestFileUrl = desktopDirectoryUrl.appendingPathComponent("test copy copy.test")
         fm.createFile(atPath: testFileUrl.path, contents: nil, attributes: nil)
-        let fileUrl = try! fm.save(filename: "test copy", fileExtension: "test", to: desktopDirectoryUrl)
+        let fileUrl = try! fm.save(filename: "test copy", extension: "test", to: desktopDirectoryUrl)
         XCTAssertTrue(fileUrl == successTestFileUrl)
         try! fm.removeItem(at: testFileUrl)
     }
