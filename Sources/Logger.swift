@@ -19,15 +19,15 @@ public protocol Logging {
     
     var logger: Logger { get }
 
-    func debugLog<T>(message: T) where T: Any
+    func debugLog(message: Any)
     func debugLog<T>(message: T) where T: Strideable
     func debugLog(message: String)
     
-    func warnLog<T>(message: T) where T: Any
+    func warnLog(message: Any)
     func warnLog<T>(message: T) where T: Strideable
     func warnLog(message: String)
     
-    func errorLog<T>(message: T) where T: Any
+    func errorLog(message: Any)
     func errorLog<T>(message: T) where T: Strideable
     func errorLog(message: String)
     
