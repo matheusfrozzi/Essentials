@@ -1,5 +1,7 @@
 # Essentials
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A framework of useful entities for iOS and macOS targets.
 
 ##Entities
